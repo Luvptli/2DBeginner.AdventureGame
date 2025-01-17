@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour
 {
     /*public InputAction LeftAction;*/
     public InputAction MoveAction;
+    Rigidbody2D rigidbody2D;
+    Vector2 move;
     // Start is called before the first frame update
     void Start()
     {
-        /*LeftAction.Enable();*/
-        MoveAction.Enable();
+        /*LeftAction.Enable();
+        MoveAction.Enable();*/
+        rigidbody2D = GetComponent<Rigidbody2D>();
         /*QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 10;*/
     }
@@ -20,12 +23,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 move = MoveAction.ReadValue<Vector2>();
+        /*Vector2*/ move = MoveAction.ReadValue<Vector2>();
         Debug.Log(move);
-        Vector2 position = (Vector2)transform.position + move * 3.0f * Time.deltaTime;
+        /*Vector2 position = (Vector2)transform.position + move * 3.0f * Time.deltaTime;
+        transform.position = position;
 
         //variable de nombre horizontal (para controlar el movimiento horizontal en el eje x)
-        /*float horizontal = 0.0f;
+        float horizontal = 0.0f;
         
         float vertical = 0.0f;
 
@@ -68,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
         //mover al personaje en el eje y hacia arriba
         /*position.y = position.y + 0.001f;*/
-        transform.position = position;
+
 
         //si añades los dos a la vez el personaje se mueve en diagonal hacia la derecha y hacia arriba
 
