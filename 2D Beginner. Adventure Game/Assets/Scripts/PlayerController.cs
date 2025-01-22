@@ -1,23 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 
 public class PlayerController : MonoBehaviour
 {
+    //Para el movimiento del jugador
     /*public InputAction LeftAction;*/
     public InputAction MoveAction;
     Rigidbody2D rigidbody2D;
     Vector2 move;
+    public float speed = 3.0f;
+
+    //Para la salud del jugador
+    public int maxHealth = 5;
+    public int currentHealth;
+    public int health {  get { return currentHealth; } }
+
+    public float timeInvincible = 2.0f;
+    bool isInvincible;
+    float damageCooldown;
+
     // Start is called before the first frame update
     void Start()
     {
-        /*LeftAction.Enable();
-        MoveAction.Enable();*/
+        /*LeftAction.Enable();*/
+        MoveAction.Enable();
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        //Esto sirve para bajar los frames por segundo a los que va el ordenador, para comprobar si el juego funciona al mismo tiempo
         /*QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 10;*/
+
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -25,6 +42,15 @@ public class PlayerController : MonoBehaviour
     {
         /*Vector2*/ move = MoveAction.ReadValue<Vector2>();
         Debug.Log(move);
+
+        if (isInvincible )
+        {
+            damageCooldown -= Time.deltaTime;
+            if (damageCooldown < 0 )
+            {
+                isInvincible = false;
+            }
+        }
         /*Vector2 position = (Vector2)transform.position + move * 3.0f * Time.deltaTime;
         transform.position = position;
 
@@ -75,7 +101,27 @@ public class PlayerController : MonoBehaviour
 
 
         //si añades los dos a la vez el personaje se mueve en diagonal hacia la derecha y hacia arriba
+    }
 
+    void FixedUpdate()
+    {
+        Vector2 position = (Vector2)rigidbody2D.position + move * speed * Time.deltaTime;
+        rigidbody2D.MovePosition(position);
+    }
 
+    public void ChangeHealth (int amount)
+    {
+        if (amount < 0)
+        {
+            if (isInvincible)
+            {
+                return;
+            }
+            isInvincible = true;
+            damageCooldown = timeInvincible;
+        }
+
+        currentHealth = Mathf.Clamp (currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth +  "/" + maxHealth);
     }
 }
