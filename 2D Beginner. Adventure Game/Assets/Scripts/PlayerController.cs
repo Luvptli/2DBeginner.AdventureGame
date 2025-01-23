@@ -122,6 +122,6 @@ public class PlayerController : MonoBehaviour
         }
 
         currentHealth = Mathf.Clamp (currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth +  "/" + maxHealth);
+        UIHandlerr.instance.SetHealthValue(currentHealth/(float)maxHealth);
     }
 }

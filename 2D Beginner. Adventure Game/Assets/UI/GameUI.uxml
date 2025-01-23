@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="HealthBarBackground" style="flex-grow: 0; background-image: url(&quot;project://database/Assets/UnityTechnologies/2DBeginnerAdventureGame/Art/SugarLand/UI/UIHealthFrameGreen.png?fileID=21300000&amp;guid=2f4af2912c471814fbe53f9eb7fa6cb2&amp;type=3#UIHealthFrameGreen&quot;); width: 346px; height: 343px; -unity-background-scale-mode: scale-to-fit; left: 62px; flex-direction: column; bottom: 54px;">
+        <ui:VisualElement name="HealthBarContainer" style="flex-grow: 1; background-image: none; position: absolute; height: 64px; width: 186px; top: 137px; left: 148px;">
+            <ui:VisualElement name="HealthBar" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UnityTechnologies/StarterAsset/Art/SugarLand/UI/UIHealthBar.png?fileID=21300000&amp;guid=b28ee55f43291f14ab9219808f397b88&amp;type=3#UIHealthBar&quot;); height: 67px; width: 189px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="CharacterPortrait" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UnityTechnologies/StarterAsset/Art/SugarLand/UI/CharacterPortrait.png?fileID=2800000&amp;guid=e8af26c6841fc05459ccaf23dbab2b63&amp;type=3#CharacterPortrait&quot;); height: 188px; width: 122px; -unity-background-scale-mode: scale-to-fit; left: 16px; top: auto; bottom: 86px; flex-direction: column-reverse; align-items: flex-end; position: absolute;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5138133528980389346
+--- !u!1 &9155628742804404441
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8126902949205273558}
-  - component: {fileID: 2739929176282222430}
-  - component: {fileID: 1804004156155677309}
-  - component: {fileID: 3290939605050178985}
-  - component: {fileID: 8067868860057108075}
+  - component: {fileID: 7097507593555287009}
+  - component: {fileID: 6707120846754361620}
+  - component: {fileID: 5279091318386347087}
+  - component: {fileID: 8032203173999436624}
+  - component: {fileID: 2836779258159519012}
   m_Layer: 0
-  m_Name: CharacterPortraitMarshal
+  m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8126902949205273558
+--- !u!4 &7097507593555287009
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138133528980389346}
+  m_GameObject: {fileID: 9155628742804404441}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.81, y: -0.38, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2739929176282222430
+--- !u!212 &6707120846754361620
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138133528980389346}
+  m_GameObject: {fileID: 9155628742804404441}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,24 +76,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6c5810b436edb3e40917fefe4281bb5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abcb801ad7499c74caa94a1efaff9900, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.4133334, y: 3.92}
+  m_Size: {x: 1.66, y: 2.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 1
---- !u!114 &1804004156155677309
+  m_SpriteSortPoint: 0
+--- !u!114 &5279091318386347087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138133528980389346}
+  m_GameObject: {fileID: 9155628742804404441}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f6c0646d39ba2946ab3711e36293965, type: 3}
@@ -103,12 +103,12 @@ MonoBehaviour:
     m_Name: Move
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 4c5d5367-a193-43da-bdd3-4355a7f724f9
+    m_Id: b0f34351-1ddb-4222-926e-c7d84c2e0257
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 2D Vector
-      m_Id: f3bc3e6a-75e9-4a17-8d6b-d3eca8552699
+      m_Id: db399c2e-a73a-4491-bdac-0b73d7e57016
       m_Path: 2DVector
       m_Interactions: 
       m_Processors: 
@@ -116,7 +116,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 4
     - m_Name: up
-      m_Id: afe76007-2e9d-408d-aafd-90c87e2c0ce4
+      m_Id: 67f7a7f9-1ec0-4f2a-88e0-878455dbf0da
       m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: down
-      m_Id: 81299807-7cba-435c-9154-e84f93d289e7
+      m_Id: bfcba22a-5e9f-4a40-bb49-28a91b9a68c4
       m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
@@ -132,7 +132,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: left
-      m_Id: 3a591e46-47cf-4cf2-989f-ebb549d7915f
+      m_Id: 050dafbf-ed7a-4638-9060-387d51bce5cd
       m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
@@ -140,7 +140,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: right
-      m_Id: fc056e52-26e4-4a72-a129-084bb2c9cb0f
+      m_Id: bab01dfe-8f33-413a-8f5f-b62bee527ce0
       m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
@@ -148,7 +148,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: 2D Vector
-      m_Id: 05aa2f40-d1d8-4b37-8807-de342c59232d
+      m_Id: 66ed6420-ff1c-41e4-ae8d-238475dc2224
       m_Path: 2DVector
       m_Interactions: 
       m_Processors: 
@@ -156,7 +156,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 4
     - m_Name: up
-      m_Id: ba9f2551-7ea0-4612-9aa7-d7f17219bedb
+      m_Id: 916a9067-8242-4f9e-9a2b-cb6a43550b50
       m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: 
@@ -164,7 +164,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: down
-      m_Id: e3fe8b43-1424-4334-ae95-300e9a707cbc
+      m_Id: e7aef6cd-4f88-4c87-9894-13ef325bd9fc
       m_Path: <Keyboard>/s
       m_Interactions: 
       m_Processors: 
@@ -172,7 +172,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: left
-      m_Id: 1d0ad6db-4f42-45dc-ba42-048b512dd030
+      m_Id: 781a733f-ccce-44ae-a6bc-0bdae0a8556f
       m_Path: <Keyboard>/a
       m_Interactions: 
       m_Processors: 
@@ -180,7 +180,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: right
-      m_Id: e5859e12-3cb1-4c97-bd5a-db1625bec8aa
+      m_Id: 9aca77fe-76fa-47fb-9640-f97f34d8070b
       m_Path: <Keyboard>/d
       m_Interactions: 
       m_Processors: 
@@ -188,7 +188,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: 2D Vector
-      m_Id: c39a78b1-6c88-4644-a00b-695141173f0d
+      m_Id: 4506d5c0-d19e-4a41-8cb1-691064563a52
       m_Path: 2DVector
       m_Interactions: 
       m_Processors: 
@@ -196,7 +196,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 4
     - m_Name: up
-      m_Id: 4d5d08e9-b74d-42c0-a263-9f3ccf04e44a
+      m_Id: 376d5b22-0cea-4072-8c30-c0a218e9477a
       m_Path: <Gamepad>/leftStick/up
       m_Interactions: 
       m_Processors: 
@@ -204,7 +204,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: down
-      m_Id: ba1a3ea4-ca45-4a86-ae5e-cef99b13016a
+      m_Id: afa42ea8-8dd3-4004-b327-58f27dc8b9ce
       m_Path: <Gamepad>/leftStick/down
       m_Interactions: 
       m_Processors: 
@@ -212,7 +212,7 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: left
-      m_Id: 3409fb63-af97-442f-9118-89647677fdf9
+      m_Id: c74635bc-98b5-49ac-a14f-9877b39735c9
       m_Path: <Gamepad>/leftStick/left
       m_Interactions: 
       m_Processors: 
@@ -220,8 +220,8 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     - m_Name: right
-      m_Id: a5e29274-c4ee-494e-801a-c2c86fa7a32a
-      m_Path: <Gamepad>/leftStick/right
+      m_Id: 1463cf4b-ea1b-489c-b14e-5b39e4852f8b
+      m_Path: <Gamepad>/rightStick/right
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -231,14 +231,15 @@ MonoBehaviour:
   speed: 3
   maxHealth: 5
   currentHealth: 0
---- !u!50 &3290939605050178985
+  timeInvincible: 2
+--- !u!50 &8032203173999436624
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138133528980389346}
+  m_GameObject: {fileID: 9155628742804404441}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -258,13 +259,13 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &8067868860057108075
+--- !u!61 &2836779258159519012
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138133528980389346}
+  m_GameObject: {fileID: 9155628742804404441}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -290,16 +291,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10430169, y: 0.12648827}
+  m_Offset: {x: 0.0035828948, y: -0.931059}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 3.4133334, y: 3.92}
-    newSize: {x: 3.4133334, y: 3.92}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.66, y: 2.4}
+    newSize: {x: 1.66, y: 2.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3163223, y: 0.27493465}
+  m_Size: {x: 0.5777179, y: 0.5099449}
   m_EdgeRadius: 0
