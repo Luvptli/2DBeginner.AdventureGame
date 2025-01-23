@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     int direction = 1;
 
     Animator animator;
+
+    bool broken = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,17 +40,21 @@ public class EnemyController : MonoBehaviour
         Vector2 position = rigidbody2D.position;
         if (vertical)
         {
-            animator.SetFloat("MoveX", 0);
-            animator.SetFloat("MoveY", direction);
-            /*position.y = position.y + speed * direction * Time.deltaTime;*/
+            position.y = position.y + speed * direction * Time.deltaTime;
+            animator.SetFloat("Move X", 0);
+            animator.SetFloat("Move Y", direction);
         }
         else
         {
-            animator.SetFloat("MoveX", direction);
-            animator.SetFloat("MoveY", 0);
-            /*position.x = position.x + speed * direction * Time.deltaTime;*/
+            position.x = position.x + speed * direction * Time.deltaTime;
+            animator.SetFloat("Move X", direction);
+            animator.SetFloat("Move Y", 0); 
         }
         rigidbody2D.MovePosition(position);
+        if (!broken)
+        {
+            return;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -58,5 +64,17 @@ public class EnemyController : MonoBehaviour
         {
             player.ChangeHealth(-1);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Destroy(gameObject);
+    }
+
+    public void Fix()
+    {
+        broken = false;
+        rigidbody2D.simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }

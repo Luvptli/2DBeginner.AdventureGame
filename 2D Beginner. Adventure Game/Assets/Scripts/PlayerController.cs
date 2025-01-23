@@ -19,17 +19,22 @@ public class PlayerController : MonoBehaviour
     public int currentHealth;
     public int health {  get { return currentHealth; } }
 
+    //Para hacer que no se haga más daño durante ese tiempo
     public float timeInvincible = 2.0f;
     bool isInvincible;
     float damageCooldown;
 
-    // Start is called before the first frame update
+    //Para la animación del movimiento del jugador
+    Animator animator;
+    Vector2 moveDirection = new Vector2(1, 0);
+
+    public GameObject projectilePrefab;
     void Start()
     {
         /*LeftAction.Enable();*/
         MoveAction.Enable();
         rigidbody2D = GetComponent<Rigidbody2D>();
-
+        animator = GetComponent<Animator>();
         //Esto sirve para bajar los frames por segundo a los que va el ordenador, para comprobar si el juego funciona al mismo tiempo
         /*QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 10;*/
@@ -41,7 +46,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         /*Vector2*/ move = MoveAction.ReadValue<Vector2>();
-        Debug.Log(move);
+        /*Debug.Log(move);*/
+
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            moveDirection.Set(move.x, move.y);
+            moveDirection.Normalize();
+        }
+        animator.SetFloat("Look X", moveDirection.x);
+        animator.SetFloat("Look Y", moveDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
 
         if (isInvincible )
         {
@@ -51,6 +65,12 @@ public class PlayerController : MonoBehaviour
                 isInvincible = false;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
+        }
+        
         /*Vector2 position = (Vector2)transform.position + move * 3.0f * Time.deltaTime;
         transform.position = position;
 
@@ -111,6 +131,7 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth (int amount)
     {
+        
         if (amount < 0)
         {
             if (isInvincible)
@@ -119,9 +140,18 @@ public class PlayerController : MonoBehaviour
             }
             isInvincible = true;
             damageCooldown = timeInvincible;
+            animator.SetTrigger("Hit");
         }
 
         currentHealth = Mathf.Clamp (currentHealth + amount, 0, maxHealth);
         UIHandlerr.instance.SetHealthValue(currentHealth/(float)maxHealth);
+    }
+
+    void Launch()
+    {
+        GameObject projectileObject = Instantiate (projectilePrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
+        Projectilee projectile = projectileObject.GetComponent<Projectilee>();
+        projectile.Launch(moveDirection, 300);
+        animator.SetTrigger("Launch");
     }
 }
