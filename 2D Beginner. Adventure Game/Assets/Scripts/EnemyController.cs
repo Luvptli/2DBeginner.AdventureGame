@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float speed;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rigidbody2d;
     public bool vertical;
 
     public float changeTime = 3.0f;
@@ -15,13 +15,19 @@ public class EnemyController : MonoBehaviour
     Animator animator;
 
     bool broken = true;
+
+    AudioSource audioSource;
+
+    public ParticleSystem smokeEffect;
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
         timer = changeTime;
 
         animator = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -37,7 +43,13 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 position = rigidbody2D.position;
+        if (!broken)
+        {
+            return;
+        }
+
+        Vector2 position = rigidbody2d.position;
+
         if (vertical)
         {
             position.y = position.y + speed * direction * Time.deltaTime;
@@ -50,11 +62,8 @@ public class EnemyController : MonoBehaviour
             animator.SetFloat("Move X", direction);
             animator.SetFloat("Move Y", 0); 
         }
-        rigidbody2D.MovePosition(position);
-        if (!broken)
-        {
-            return;
-        }
+
+        rigidbody2d.MovePosition(position);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -74,7 +83,9 @@ public class EnemyController : MonoBehaviour
     public void Fix()
     {
         broken = false;
-        rigidbody2D.simulated = false;
+        rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
+        audioSource.Stop();
+        smokeEffect.Stop();
     }
 }

@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     //Para el movimiento del jugador
     /*public InputAction LeftAction;*/
     public InputAction MoveAction;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rigidbody2d;
     Vector2 move;
     public float speed = 3.0f;
 
@@ -28,18 +28,27 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Vector2 moveDirection = new Vector2(1, 0);
 
+    //Para generar una bala
     public GameObject projectilePrefab;
+
+    public InputAction talkAction;
+
+    AudioSource audioSource;
     void Start()
     {
         /*LeftAction.Enable();*/
         MoveAction.Enable();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         //Esto sirve para bajar los frames por segundo a los que va el ordenador, para comprobar si el juego funciona al mismo tiempo
         /*QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 10;*/
 
         currentHealth = maxHealth;
+
+        talkAction.Enable();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -69,6 +78,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             Launch();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            FindFriend();
         }
         
         /*Vector2 position = (Vector2)transform.position + move * 3.0f * Time.deltaTime;
@@ -125,8 +139,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 position = (Vector2)rigidbody2D.position + move * speed * Time.deltaTime;
-        rigidbody2D.MovePosition(position);
+        Vector2 position = (Vector2)rigidbody2d.position + move * speed * Time.deltaTime;
+        rigidbody2d.MovePosition(position);
     }
 
     public void ChangeHealth (int amount)
@@ -149,9 +163,27 @@ public class PlayerController : MonoBehaviour
 
     void Launch()
     {
-        GameObject projectileObject = Instantiate (projectilePrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
+        GameObject projectileObject = Instantiate (projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         Projectilee projectile = projectileObject.GetComponent<Projectilee>();
         projectile.Launch(moveDirection, 300);
         animator.SetTrigger("Launch");
+    }
+
+    void FindFriend()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, moveDirection, 1.5f, LayerMask.GetMask("NPC"));
+        if (hit.collider != null)
+        {
+            NonPlayerCharacterr character = hit.collider.GetComponent<NonPlayerCharacterr>();
+            if (character != null)
+            {
+                UIHandlerr.instance.DisplayDialogue();
+            }
+        }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

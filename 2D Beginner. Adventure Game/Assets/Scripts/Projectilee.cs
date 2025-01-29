@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class Projectilee : MonoBehaviour
 {
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D rigidbody2d;
 
     void Awake()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -22,7 +22,7 @@ public class Projectilee : MonoBehaviour
 
     public void Launch (Vector2 direction, float force)
     {
-        rigidbody2D.AddForce(direction * force);
+        rigidbody2d.AddForce(direction * force);
     }
 
     void OnTriggerEnter2D(Collider2D other)
