@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour
         Projectilee projectile = projectileObject.GetComponent<Projectilee>();
         projectile.Launch(moveDirection, 300);
         animator.SetTrigger("Launch");
+        
     }
 
     void FindFriend()

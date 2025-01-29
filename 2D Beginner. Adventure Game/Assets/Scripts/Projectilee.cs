@@ -7,6 +7,8 @@ public class Projectilee : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
 
+    public float timerProyectile = 5;
+
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -18,11 +20,18 @@ public class Projectilee : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        timerProyectile -= Time.deltaTime;
+        if (timerProyectile<= 0)
+        {
+            Destroy(gameObject);
+            timerProyectile = 5;
+        }
     }
 
     public void Launch (Vector2 direction, float force)
     {
-        rigidbody2d.AddForce(direction * force);
+        rigidbody2d.AddForce(direction * force); 
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
