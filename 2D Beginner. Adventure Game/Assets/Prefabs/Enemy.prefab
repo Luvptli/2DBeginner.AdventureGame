@@ -174,9 +174,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ea5baec101c0b41b7ac3b0553dbe01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  totalEnemysBroken: 0
+  totalEnemysRepair: 0
+  textEnemys: {fileID: 0}
+  enemies: {fileID: 0}
+  speed: 1
   vertical: 0
   changeTime: 3
+  broken: 1
   smokeEffect: {fileID: 7930704621636202216}
 --- !u!95 &6064726305183002554
 Animator:
