@@ -11,24 +11,22 @@ public class EnemiesCount : MonoBehaviour
     public TextMeshProUGUI textEnemys;
 
     public GameObject enemies;
-
-    private void Update()
-    {
-        textEnemys.text = totalEnemysRepair.ToString() + " / " + totalEnemysBroken.ToString();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            AddEnemie();
-        }
-    }
     public void AddEnemie()
     {
         Instantiate(enemies, new Vector2(10,10), Quaternion.identity);
         totalEnemysBroken++;
+        ActualizarEtqueta();
     }
 
     public void RemoveEnemie()
     {
         totalEnemysRepair++;
+        ActualizarEtqueta();
+    }
+
+    public void ActualizarEtqueta()
+    {
+        textEnemys.text = totalEnemysRepair.ToString() + " / " + totalEnemysBroken.ToString();
     }
 }
     

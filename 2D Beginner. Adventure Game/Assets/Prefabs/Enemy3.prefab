@@ -219,9 +219,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ea5baec101c0b41b7ac3b0553dbe01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalEnemysBroken: 0
+  totalEnemysRepair: 0
+  textEnemys: {fileID: 0}
+  enemies: {fileID: 0}
   speed: 1
   vertical: 0
   changeTime: 3
+  broken: 1
   smokeEffect: {fileID: 5151551894800356476, guid: dd89c237bf5a21844acc8d5162bd2223,
     type: 3}
 --- !u!61 &1741788456309510971
@@ -256,7 +261,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004893303, y: 1.1405311}
+  m_Offset: {x: 0.004893303, y: -0.01106739}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -267,7 +272,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.449358, y: 2.1970053}
+  m_Size: {x: 1.449358, y: 2.4173107}
   m_EdgeRadius: 0
 --- !u!50 &7293928458954507605
 Rigidbody2D:

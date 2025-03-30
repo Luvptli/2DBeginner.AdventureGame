@@ -32,6 +32,11 @@ public class EnemyController : EnemiesCount
 
         totalEnemysBroken = 12;
         totalEnemysRepair = 0;
+
+        if (!gameObject.name.Contains("Confined"))
+        {
+            AddEnemie();
+        }
     }
 
     void Update()
