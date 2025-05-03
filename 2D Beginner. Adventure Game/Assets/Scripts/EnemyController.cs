@@ -30,17 +30,14 @@ public class EnemyController : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-<<<<<<< HEAD
-        totalEnemysBroken = 12;
-        totalEnemysRepair = 0;
+
+        //totalEnemysBroken = 12;
+        //totalEnemysRepair = 0;
 
         if (!gameObject.name.Contains("Confined"))
         {
-            AddEnemie();
+            //AddEnemie();
         }
-=======
-        //Para que se mueva aleatorio: ChangeDirection();
->>>>>>> parent of b935204 (Modificación)
     }
 
     void Update()
