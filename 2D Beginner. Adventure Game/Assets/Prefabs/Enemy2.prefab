@@ -105,8 +105,7 @@ MonoBehaviour:
   speed: 1
   vertical: 1
   changeTime: 3
-  smokeEffect: {fileID: 5151551894800356476, guid: dd89c237bf5a21844acc8d5162bd2223,
-    type: 3}
+  smokeEffect: {fileID: 0}
 --- !u!61 &5044260166318883449
 BoxCollider2D:
   m_ObjectHideFlags: 0

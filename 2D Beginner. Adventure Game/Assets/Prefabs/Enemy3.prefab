@@ -226,9 +226,13 @@ MonoBehaviour:
   speed: 1
   vertical: 0
   changeTime: 3
+<<<<<<< HEAD
   broken: 1
   smokeEffect: {fileID: 5151551894800356476, guid: dd89c237bf5a21844acc8d5162bd2223,
     type: 3}
+=======
+  smokeEffect: {fileID: 0}
+>>>>>>> parent of b935204 (Modificación)
 --- !u!61 &1741788456309510971
 BoxCollider2D:
   m_ObjectHideFlags: 0
