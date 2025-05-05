@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour
     AudioSource audioSource;
 
     public ParticleSystem smokeEffect;
-    // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -30,14 +29,7 @@ public class EnemyController : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-
-        //totalEnemysBroken = 12;
-        //totalEnemysRepair = 0;
-
-        if (!gameObject.name.Contains("Confined"))
-        {
-            //AddEnemie();
-        }
+        EnemiesCount.instance.AddEnemie();
     }
 
     void Update()
@@ -95,7 +87,7 @@ public class EnemyController : MonoBehaviour
     case 2:
      movementDirection = Vector2.up;
      break;
-    case 1:
+    case 3:
      movementDirection = Vector2.down;
      break;
     }
@@ -122,5 +114,6 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("Fixed");
         audioSource.Stop();
         smokeEffect.Stop();
+        EnemiesCount.instance.RemoveEnemie();
     }
 }

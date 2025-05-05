@@ -379,7 +379,8 @@ MonoBehaviour:
   speed: 2
   vertical: 1
   changeTime: 1
-  smokeEffect: {fileID: 1903826842987453792}
+  smokeEffect: {fileID: 5151551894800356476, guid: dd89c237bf5a21844acc8d5162bd2223,
+    type: 3}
 --- !u!1 &9158820813055941502
 GameObject:
   m_ObjectHideFlags: 0

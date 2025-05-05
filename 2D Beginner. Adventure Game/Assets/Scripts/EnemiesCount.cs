@@ -10,10 +10,21 @@ public class EnemiesCount : MonoBehaviour
     public int totalEnemysRepair;
     public TextMeshProUGUI textEnemys;
 
-    public GameObject enemies;
+    public static EnemiesCount instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void AddEnemie()
     {
-        Instantiate(enemies, new Vector2(10,10), Quaternion.identity);
         totalEnemysBroken++;
         ActualizarEtqueta();
     }
